@@ -10,19 +10,28 @@
 
 <body>
     <!-- Camera -->
-    <main id="camera">
-        <!-- Camera sensor -->
+    <!-- <main id="camera">
         <canvas id="camera--sensor"></canvas>
-        <!-- Camera view -->
         <video id="camera--view" autoplay playsinline></video>
-        <!-- Camera output -->
         <img src="//:0" alt="" id="camera--output">
-        <!-- Camera trigger -->
         <button id="camera--trigger">Take a picture</button>
-    </main>
+    </main> -->
+
+    <div id="camera">
+            <canvas id="camera--sensor"></canvas>
+    </div>
+    
     <!-- Reference to your JavaScript file -->
     <script src="adapter.js"></script>
+    <script src="https://unpkg.com/javascript-barcode-reader/dist/javascript-barcode-reader.min.js"></script>
+
+
     <script>
+
+
+        
+
+
         var constraints = {
             video: {
                 facingMode: "environment" // "environment" para a camera de tras
@@ -57,6 +66,19 @@
             cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
             cameraOutput.src = cameraSensor.toDataURL("image/webp");
             cameraOutput.classList.add("taken");
+            javascriptBarcodeReader(
+                cameraSensor /* Image file Path || {data: pixelArray, width, height} || HTML5 Canvas ImageData */,
+                {
+                    barcode: 'code-2of5',
+                    type: 'industrial', //optional type
+                }
+            )
+            .then(code => {
+                alert('code >> ', code)
+            })
+            .catch(err => {
+                alert('err >> ', err)
+            })
         }; 
 
 
