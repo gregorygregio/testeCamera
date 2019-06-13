@@ -62,14 +62,8 @@ var barcode = function() {
 		navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
 		elements.video = document.querySelector(config.video);
-		elements.canvas = document.querySelector(config.canvas);
 
-		// alert('1111');
 		
-		
-		elements.ctx = elements.canvas.getContext('2d');
-		elements.canvasg = document.querySelector(config.canvasg);
-		elements.ctxg = elements.canvasg.getContext('2d');
 
 		if (navigator.mediaDevices.getUserMedia) {
 			var constraints = {
@@ -80,6 +74,27 @@ var barcode = function() {
 			navigator.getUserMedia(constraints, function(stream) {
 				// elements.video.src = window.URL.createObjectURL(stream);
 				elements.video.srcObject = stream;
+
+
+
+
+				var canvas = document.createElement('canvas');
+				canvas.setAttribute('id', "barcodecanvas")
+				canvas.style.width= elements.video.videoWidth;
+				canvas.style.height= elements.video.videoHeight;
+				
+				document.querySelector(config.canvas).append(canvas);
+				elements.canvas = canvas;
+		
+				// alert('1111');
+				
+				
+				elements.ctx = elements.canvas.getContext('2d');
+				elements.canvasg = document.querySelector(config.canvasg);
+				elements.ctxg = elements.canvasg.getContext('2d');
+
+
+
 			}, function(error) {
 				alert('>>>', error);
 			});
