@@ -68,8 +68,9 @@ var barcode = function() {
 		elements.canvasg = document.querySelector(config.canvasg);
 		elements.ctxg = elements.canvasg.getContext('2d');
 
-		if (navigator.getUserMedia) {
-			alert(navigator.getUserMedia)
+		alert(navigator.getUserMedia)
+		alert(navigator.mediaDevices)
+		if (navigator.mediaDevices.getUserMedia) {
 			var constraints = {
 				video: {
 					facingMode: "environment" // "environment" para a camera de tras
