@@ -83,8 +83,8 @@ var barcode = function() {
 
 		elements.video.addEventListener('canplay', function(e) {
 
-			dimensions.height = elements.video.videoHeight*2;
-			dimensions.width = elements.video.videoWidth*2;
+			dimensions.height = elements.video.videoHeight;
+			dimensions.width = elements.video.videoWidth;
 
 			alert('height >> ' + dimensions.height);
 			alert('width >> ' + dimensions.width);
@@ -96,6 +96,11 @@ var barcode = function() {
 			elements.canvasg.width = dimensions.width;
 			elements.canvasg.height = dimensions.height;
 
+			elements.video.addEventListener('loadedmetadata', function() {
+				elements.ctx.translate(elements.video.videoWidth, 0); 
+				elements.ctx.scale(-1, 1);
+			 });
+	
 			drawGraphics();
 			setInterval(function(){snapshot()}, config.delay);
 
