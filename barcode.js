@@ -91,8 +91,8 @@ var barcode = function() {
 			
 			var canvas = document.createElement('canvas');
 			canvas.setAttribute('id', "barcodecanvas")
-			canvas.style.width = canvas.width = dimensions.width;
-			canvas.style.height = canvas.height = dimensions.height;
+			// canvas.style.width = canvas.width = dimensions.width;
+			// canvas.style.height = canvas.height = dimensions.height;
 
 			document.querySelector(config.canvas).append(canvas);
 			elements.canvas = canvas;
