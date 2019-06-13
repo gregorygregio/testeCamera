@@ -77,9 +77,6 @@ var barcode = function() {
 				}, audio: false
 			};
 			navigator.getUserMedia(constraints, function(stream) {
-				alert('got stram');
-				alert(elements.video);
-				alert(stream);
 				// elements.video.src = window.URL.createObjectURL(stream);
 				elements.video.srcObject = stream;
 			}, function(error) {
