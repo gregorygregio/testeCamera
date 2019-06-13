@@ -69,10 +69,17 @@ var barcode = function() {
 		elements.ctxg = elements.canvasg.getContext('2d');
 
 		if (navigator.getUserMedia) {
-			navigator.getUserMedia({audio: false, video: true}, function(stream) {
+			alert(navigator.getUserMedia)
+			var constraints = {
+				video: {
+					facingMode: "environment" // "environment" para a camera de tras
+				}, audio: false
+			};
+			navigator.getUserMedia(constraints, function(stream) {
 				elements.video.src = window.URL.createObjectURL(stream);
+				console.log(222)
 			}, function(error) {
-				console.log(error);
+				alert('aaa >>>', error);
 			});
 		}
 
