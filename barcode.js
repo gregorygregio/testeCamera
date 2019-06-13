@@ -67,8 +67,6 @@ var barcode = function() {
 		elements.canvasg = document.querySelector(config.canvasg);
 		elements.ctxg = elements.canvasg.getContext('2d');
 
-		alert(navigator.getUserMedia)
-		alert(navigator.mediaDevices)
 		if (navigator.mediaDevices.getUserMedia) {
 			var constraints = {
 				video: {
