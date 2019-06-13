@@ -1,4 +1,6 @@
-#barcodevideo, #barcodecanvas, #barcodecanvasg {
+#barcodevideo, 
+/* #barcodecanvas, */
+ #barcodecanvasg {
 	height: 640px;
 	width: 480px;
 }	
@@ -21,7 +23,7 @@
 
 #barcodecanvas {
 	/* display: none; */
-	height: 100px;
-	width: 100px;
+	/* height: 100px;
+	width: 100px; */
 	border: solid 4px red;
 }
