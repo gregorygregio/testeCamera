@@ -82,12 +82,13 @@ var barcode = function() {
 			});
 		}
 
+		alert('1111')
 		elements.video.addEventListener('canplay', function(e) {
 
 			dimensions.height = elements.video.videoHeight;
 			dimensions.width = elements.video.videoWidth;
 
-			
+
 			elements.canvas.style.width = dimensions.width;
 			elements.canvas.style.height = dimensions.height;
 

@@ -21,7 +21,7 @@
 
 #barcodecanvas {
 	/* display: none; */
-	height: 640px;
-	width: 480px;
-	border: solid 2px red;
+	height: 100px;
+	width: 100px;
+	border: solid 4px red;
 }
