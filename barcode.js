@@ -58,7 +58,7 @@ var barcode = function() {
 	}
 
 	function init() {
-
+		alert('init')
 		window.URL = window.URL || window.webkitURL;
 		navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
@@ -77,8 +77,9 @@ var barcode = function() {
 				}, audio: false
 			};
 			navigator.getUserMedia(constraints, function(stream) {
+				alert('got stram');
+				alert(elements.video);
 				elements.video.src = window.URL.createObjectURL(stream);
-				console.log(222)
 			}, function(error) {
 				alert('aaa >>>', error);
 			});
