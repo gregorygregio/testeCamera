@@ -65,8 +65,7 @@ var barcode = function() {
 		elements.canvas = document.querySelector(config.canvas);
 
 		// alert('1111');
-		elements.canvas.style.width = elements.video.videoWidth;
-		elements.canvas.style.height =  elements.video.videoHeight;
+		
 		
 		elements.ctx = elements.canvas.getContext('2d');
 		elements.canvasg = document.querySelector(config.canvasg);
@@ -81,6 +80,9 @@ var barcode = function() {
 			navigator.getUserMedia(constraints, function(stream) {
 				// elements.video.src = window.URL.createObjectURL(stream);
 				elements.video.srcObject = stream;
+				alert(666)
+				elements.canvas.style.width = elements.video.videoWidth;
+				elements.canvas.style.height =  elements.video.videoHeight;
 			}, function(error) {
 				alert('>>>', error);
 			});
