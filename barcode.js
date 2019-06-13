@@ -96,11 +96,7 @@ var barcode = function() {
 			elements.canvasg.width = dimensions.width;
 			elements.canvasg.height = dimensions.height;
 
-			elements.video.addEventListener('loadedmetadata', function() {
-				elements.ctx.translate(elements.video.videoWidth, 0); 
-				elements.ctx.scale(-1, 1);
-			 });
-	
+
 			drawGraphics();
 			setInterval(function(){snapshot()}, config.delay);
 
@@ -123,6 +119,8 @@ var barcode = function() {
 		// convert to grayscale
  
 		var imgd = elements.ctx.getImageData(dimensions.start, dimensions.height * 0.5, dimensions.end - dimensions.start, 1);
+		alert('imgd.data' + imgd.data);
+		alert('video.data' + elements.video.data);
 		var rgbpixels = imgd.data;
 
 		for (var i = 0, ii = rgbpixels.length; i < ii; i = i + 4) {
