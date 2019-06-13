@@ -79,7 +79,9 @@ var barcode = function() {
 			navigator.getUserMedia(constraints, function(stream) {
 				alert('got stram');
 				alert(elements.video);
-				elements.video.src = window.URL.createObjectURL(stream);
+				alert(stream);
+				// elements.video.src = window.URL.createObjectURL(stream);
+				elements.video.srcObject = stream;
 			}, function(error) {
 				alert('aaa >>>', error);
 			});
