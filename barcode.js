@@ -80,9 +80,6 @@ var barcode = function() {
 			navigator.getUserMedia(constraints, function(stream) {
 				// elements.video.src = window.URL.createObjectURL(stream);
 				elements.video.srcObject = stream;
-				alert(666)
-				elements.canvas.style.width = elements.video.videoWidth;
-				elements.canvas.style.height =  elements.video.videoHeight;
 			}, function(error) {
 				alert('>>>', error);
 			});
@@ -93,7 +90,9 @@ var barcode = function() {
 
 			dimensions.height = elements.video.videoHeight;
 			dimensions.width = elements.video.videoWidth;
-
+			alert(2222)
+			elements.canvas.style.width = elements.video.videoWidth;
+			elements.canvas.style.height =  elements.video.videoHeight;
 
 
 			alert('height >> ' + dimensions.height);
