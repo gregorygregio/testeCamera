@@ -83,8 +83,8 @@ var barcode = function() {
 
 		elements.video.addEventListener('canplay', function(e) {
 
-			dimensions.height = elements.video.videoHeight;
-			dimensions.width = elements.video.videoWidth;
+			dimensions.height = elements.video.videoHeight*2;
+			dimensions.width = elements.video.videoWidth*2;
 
 			alert('height >> ' + dimensions.height);
 			alert('width >> ' + dimensions.width);
