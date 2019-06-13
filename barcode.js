@@ -79,7 +79,7 @@ var barcode = function() {
 				// elements.video.src = window.URL.createObjectURL(stream);
 				elements.video.srcObject = stream;
 			}, function(error) {
-				alert('aaa >>>', error);
+				alert('>>>', error);
 			});
 		}
 
