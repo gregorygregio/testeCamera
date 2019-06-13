@@ -1,6 +1,6 @@
 #barcodevideo, #barcodecanvas, #barcodecanvasg {
-	height: 1280px;
-	width: 960px;
+	height: 100vh;
+	width: 100vw;
 }	
 
 #barcodecanvasg {
