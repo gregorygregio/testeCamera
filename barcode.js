@@ -63,6 +63,7 @@ var barcode = function() {
 
 		elements.video = document.querySelector(config.video);
 		elements.canvas = document.querySelector(config.canvas);
+		
 		elements.ctx = elements.canvas.getContext('2d');
 		elements.canvasg = document.querySelector(config.canvasg);
 		elements.ctxg = elements.canvasg.getContext('2d');
@@ -85,6 +86,10 @@ var barcode = function() {
 
 			dimensions.height = elements.video.videoHeight;
 			dimensions.width = elements.video.videoWidth;
+
+			
+			elements.canvas.style.width = dimensions.width;
+			elements.canvas.style.height = dimensions.height;
 
 			alert('height >> ' + dimensions.height);
 			alert('width >> ' + dimensions.width);
