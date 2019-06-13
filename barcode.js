@@ -58,7 +58,6 @@ var barcode = function() {
 	}
 
 	function init() {
-		alert('init')
 		window.URL = window.URL || window.webkitURL;
 		navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
@@ -89,6 +88,8 @@ var barcode = function() {
 			dimensions.height = elements.video.videoHeight;
 			dimensions.width = elements.video.videoWidth;
 
+			alert('height >> ' + dimensions.height);
+			alert('width >> ' + dimensions.width);
 			dimensions.start = dimensions.width * config.start;
 			dimensions.end = dimensions.width * config.end;
 
