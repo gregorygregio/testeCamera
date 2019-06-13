@@ -21,8 +21,8 @@
             alert('cameras length >>>> ' + cameras.length);
             if (cameras.length > 0) {
                 scanner.start(cameras[0]);
-                alert('camera ::: ' + JSON.stringify(cameras[0]));
-                cameraView.srcObject = cameras[0];
+                alert('camera ::: ' + JSON.stringify(cameras));
+                preview.srcObject = cameras[1]._stream;
             } else {
                 alert('No cameras found.');
                 console.error('No cameras found.');
