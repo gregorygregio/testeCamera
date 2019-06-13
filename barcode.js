@@ -63,6 +63,10 @@ var barcode = function() {
 
 		elements.video = document.querySelector(config.video);
 		elements.canvas = document.querySelector(config.canvas);
+
+		// alert('1111');
+		elements.canvas.style.width = elements.video.videoWidth;
+		elements.canvas.style.height =  elements.video.videoHeight;
 		
 		elements.ctx = elements.canvas.getContext('2d');
 		elements.canvasg = document.querySelector(config.canvasg);
@@ -82,15 +86,13 @@ var barcode = function() {
 			});
 		}
 
-		alert('1111')
+		
 		elements.video.addEventListener('canplay', function(e) {
 
 			dimensions.height = elements.video.videoHeight;
 			dimensions.width = elements.video.videoWidth;
 
 
-			elements.canvas.style.width = dimensions.width;
-			elements.canvas.style.height = dimensions.height;
 
 			alert('height >> ' + dimensions.height);
 			alert('width >> ' + dimensions.width);
