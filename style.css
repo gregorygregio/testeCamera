@@ -7,7 +7,6 @@
 	position: absolute;
 	top: 0px;
 	left: 0px;
-	background: lightblue;
 }
 
 #result {
@@ -17,7 +16,7 @@
 
 #barcode {
 	position: relative;
-	
+
 }	
 
 #barcodecanvas {
