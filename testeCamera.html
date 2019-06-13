@@ -11,7 +11,9 @@
         <video id="preview" autoplay="autoplay" class="inactive" style="transform: scaleX(-1);"></video>
     </div>
     <script type="text/javascript">
-        let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+
+        const preview = document.getElementById('preview');
+        let scanner = new Instascan.Scanner({ video: preview });
         scanner.addListener('scan', function (content) {
             alert(content);
         });
@@ -19,6 +21,8 @@
             alert('cameras length >>>> ' + cameras.length);
             if (cameras.length > 0) {
                 scanner.start(cameras[0]);
+                alert('camera ::: ' + JSON.stringify(cameras[0]));
+                cameraView.srcObject = cameras[0];
             } else {
                 alert('No cameras found.');
                 console.error('No cameras found.');
