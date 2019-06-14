@@ -1,8 +1,15 @@
+// http://www.webondevices.com/javascript-barcode-scanner/
+
 var barcode = function() {
 
 	var localMediaStream = null;
 	var bars = [];
-	var handler = null;
+	var handler = function() {
+		console.log('Unimplemented onRead');
+	};
+	var onErrorHandler = function() {
+		console.log('Unimplemented onError');
+	};
 
 	var dimensions = {
 		height: 0,
@@ -74,9 +81,7 @@ var barcode = function() {
 			navigator.getUserMedia(constraints, function(stream) {
 				// elements.video.src = window.URL.createObjectURL(stream);
 				elements.video.srcObject = stream;
-			}, function(error) {
-				alert('>>>', error);
-			});
+			}, onErrorHandler);
 		}
 
 		
@@ -91,8 +96,8 @@ var barcode = function() {
 			
 			var canvas = document.createElement('canvas');
 			canvas.setAttribute('id', "barcodecanvas")
-			// canvas.style.width = canvas.width = dimensions.width;
-			// canvas.style.height = canvas.height = dimensions.height;
+			canvas.style.width = canvas.width = dimensions.width;
+			canvas.style.height = canvas.height = dimensions.height;
 
 			document.querySelector(config.canvas).append(canvas);
 			elements.canvas = canvas;
@@ -310,15 +315,19 @@ var barcode = function() {
 		console.log("quality: " + quality);
 
 		if(quality < config.quality) {
-			if (handler != null) {
+			// if (handler != null) {
 				handler(checkDigit + result.join(''));
-			}
+			// }
 		}
 
 	}
 
-	function setHandler(h) {
-		handler = h;
+	function onRead(fn) {
+		handler = fn;
+	}
+
+	function onError(fn) {
+		onErrorHandler = fn;
 	}
 
 	function normalize(input, total) {
@@ -362,7 +371,9 @@ var barcode = function() {
 
 	return {
 		init: init,
-		setHandler: setHandler,
+		// setHandler: setHandler,
+		onRead: onRead,
+		onError: onError,
 		config: config
 	};
 

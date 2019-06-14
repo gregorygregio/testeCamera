@@ -17,15 +17,19 @@
 				barcode.config.video = '#barcodevideo';
 				barcode.config.canvas = '#canvasContainer';
 				barcode.config.canvasg = '#barcodecanvasg';
-				barcode.setHandler(function (barcode) {
+				barcode.onRead(function (barcode) {
+					sound.play();
 					$('#result').html(barcode);
 				});
-				barcode.init();
-				
-				$('#result').bind('DOMSubtreeModified', function (e) {
-					// sound.play();
-					alert('imagem capturada')
+				barcode.onError(function (error) {
+					console.log('caught error >> ', error);
 				});
+				try {
+					barcode.init();
+				} catch (error) {
+					console.log('catch error >> ', error);
+				}
+				
 				
 			} catch (e) {
 				alert('error' + e)
