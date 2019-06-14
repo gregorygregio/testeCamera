@@ -66,23 +66,31 @@ var barcode = function() {
 
 	function init() {
 		window.URL = window.URL || window.webkitURL;
-		navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
+		alert('navigator 111 >> ' + JSON.stringify( Object.keys(navigator)) );
+		navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.mediaDevices ? navigator.mediaDevices.getUserMedia : null;
+
+		alert('navigator >> ' + JSON.stringify( Object.keys(navigator)) );
+		alert('navigator.getUserMedia >> ' + navigator.getUserMedia);
+		alert('navigator.mediaDevices >> ' + navigator.mediaDevices);
 		elements.video = document.querySelector(config.video);
 
-		
-
-		if (navigator.mediaDevices.getUserMedia) {
-			var constraints = {
-				video: {
-					facingMode: "environment" // "environment" para a camera de tras
-				}, audio: false
-			};
-			navigator.getUserMedia(constraints, function(stream) {
-				// elements.video.src = window.URL.createObjectURL(stream);
-				elements.video.srcObject = stream;
-			}, onErrorHandler);
+		if (!navigator.getUserMedia) {
+			onErrorHandler('O seu navegador não permite acesso à câmera');
+			return;
 		}
+
+
+		var constraints = {
+			video: {
+				facingMode: "environment" // "environment" para a camera de tras
+			}, audio: false
+		};
+		navigator.getUserMedia(constraints, function(stream) {
+			// elements.video.src = window.URL.createObjectURL(stream);
+			elements.video.srcObject = stream;
+		}, onErrorHandler);
+		
 
 		
 		elements.video.addEventListener('canplay', function(e) {
