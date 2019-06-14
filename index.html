@@ -22,13 +22,11 @@
 					$('#result').html(barcode);
 				});
 				barcode.onError(function (error) {
-					console.log('caught error >> ', error);
+					alert('caught error >> ' + error);
 				});
-				try {
-					barcode.init();
-				} catch (error) {
-					console.log('catch error >> ', error);
-				}
+				
+				barcode.init();
+				
 				
 				
 			} catch (e) {
