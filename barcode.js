@@ -75,7 +75,7 @@ var barcode = function() {
 		alert('navigator.mediaDevices >> ' + navigator.mediaDevices);
 		elements.video = document.querySelector(config.video);
 
-		if (!navigator.getUserMedia) {
+		if (!navigator.mediaDevices.getUserMedia) {
 			onErrorHandler('O seu navegador não permite acesso à câmera');
 			return;
 		}
@@ -87,7 +87,7 @@ var barcode = function() {
 				facingMode: "environment" // "environment" para a camera de tras
 			}, audio: false
 		};
-		navigator.getUserMedia(constraints, function(stream) {
+		navigator.mediaDevices.getUserMedia(constraints, function(stream) {
 			// elements.video.src = window.URL.createObjectURL(stream);
 			alert('AND here')
 			elements.video.srcObject = stream;
