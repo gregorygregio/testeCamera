@@ -66,37 +66,29 @@ var barcode = function() {
 
 	function init() {
 		window.URL = window.URL || window.webkitURL;
+		navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
-		alert('navigator 111 >> ' + JSON.stringify( Object.keys(navigator)) );
-		navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.mediaDevices ? navigator.mediaDevices.getUserMedia : null;
-
-		alert('navigator >> ' + JSON.stringify( Object.keys(navigator)) );
-		alert('navigator.getUserMedia >> ' + navigator.getUserMedia);
-		alert('navigator.mediaDevices >> ' + navigator.mediaDevices);
 		elements.video = document.querySelector(config.video);
 
-		if (!navigator.mediaDevices.getUserMedia) {
-			onErrorHandler('O seu navegador não permite acesso à câmera');
-			return;
-		}
-
-		alert('here')
-
-		var constraints = {
-			video: {
-				facingMode: "environment" // "environment" para a camera de tras
-			}, audio: false
-		};
-		navigator.mediaDevices.getUserMedia(constraints, function(stream) {
-			// elements.video.src = window.URL.createObjectURL(stream);
-			alert('AND here')
-			elements.video.srcObject = stream;
-		}, onErrorHandler);
 		
+
+		if (navigator.mediaDevices.getUserMedia) {
+			alert('HERE');
+			var constraints = {
+				video: {
+					facingMode: "environment" // "environment" para a camera de tras
+				}, audio: false
+			};
+			navigator.getUserMedia(constraints, function(stream) {
+				// elements.video.src = window.URL.createObjectURL(stream);
+				alert('AND HERE');
+				elements.video.srcObject = stream;
+			}, onErrorHandler);
+		}
 
 		
 		elements.video.addEventListener('canplay', function(e) {
-			alert('AND FINALY here')
+			alert('AND FINALLY HERE');
 			dimensions.height = elements.video.videoHeight;
 			dimensions.width = elements.video.videoWidth;
 
