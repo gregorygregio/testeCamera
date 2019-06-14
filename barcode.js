@@ -80,6 +80,7 @@ var barcode = function() {
 			return;
 		}
 
+		alert('here')
 
 		var constraints = {
 			video: {
