@@ -89,13 +89,14 @@ var barcode = function() {
 		};
 		navigator.getUserMedia(constraints, function(stream) {
 			// elements.video.src = window.URL.createObjectURL(stream);
+			alert('AND here')
 			elements.video.srcObject = stream;
 		}, onErrorHandler);
 		
 
 		
 		elements.video.addEventListener('canplay', function(e) {
-
+			alert('AND FINALY here')
 			dimensions.height = elements.video.videoHeight;
 			dimensions.width = elements.video.videoWidth;
 
