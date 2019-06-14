@@ -17,6 +17,7 @@
 				barcode.config.video = '#barcodevideo';
 				barcode.config.canvas = '#canvasContainer';
 				barcode.config.canvasg = '#barcodecanvasg';
+				alert(3333);
 				barcode.onRead(function (barcode) {
 					sound.play();
 					$('#result').html(barcode);
@@ -24,7 +25,7 @@
 				barcode.onError(function (error) {
 					alert('caught error >> ' + error);
 				});
-				
+
 				barcode.init();
 				
 				
