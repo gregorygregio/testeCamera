@@ -72,19 +72,20 @@ var barcode = function() {
 
 		
 
-		if (navigator.mediaDevices.getUserMedia) {
+		// if (navigator.mediaDevices.getUserMedia) {
 			alert('HERE');
 			var constraints = {
 				video: {
 					facingMode: "environment" // "environment" para a camera de tras
 				}, audio: false
 			};
-			navigator.mediaDevices.getUserMedia(constraints, function(stream) {
+			var getUserMedia = navigator.mediaDevices.getUserMedia || navigator.getUserMedia;
+			getUserMedia(constraints, function(stream) {
 				// elements.video.src = window.URL.createObjectURL(stream);
 				alert('AND HERE');
 				elements.video.srcObject = stream;
 			}, onErrorHandler);
-		}
+		// }
 
 		
 		elements.video.addEventListener('canplay', function(e) {
