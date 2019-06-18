@@ -79,8 +79,8 @@ var barcode = function() {
 					facingMode: "environment" // "environment" para a camera de tras
 				}, audio: false
 			};
-			var getUserMedia = navigator.getUserMedia || navigator.mediaDevices.getUserMedia;
-			getUserMedia(constraints, function(stream) {
+			
+			navigator.getUserMedia(constraints, function(stream) {
 				// elements.video.src = window.URL.createObjectURL(stream);
 				alert('AND HERE');
 				elements.video.srcObject = stream;
