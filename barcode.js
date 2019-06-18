@@ -66,7 +66,12 @@ var barcode = function() {
 
 	function init() {
 		window.URL = window.URL || window.webkitURL;
-		navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+		navigator.getUserMedia = (
+			navigator.getUserMedia ||
+			navigator.webkitGetUserMedia ||
+			navigator.mozGetUserMedia ||
+			navigator.msGetUserMedia
+		);
 
 		elements.video = document.querySelector(config.video);
 
@@ -79,12 +84,18 @@ var barcode = function() {
 					facingMode: "environment" // "environment" para a camera de tras
 				}, audio: false
 			};
-			
-			navigator.getUserMedia(constraints, function(stream) {
-				// elements.video.src = window.URL.createObjectURL(stream);
+
+			var streamHandler = function(stream) {
 				alert('AND HERE');
 				elements.video.srcObject = stream;
-			}, onErrorHandler);
+			}
+
+			if (typeof navigator.mediaDevices.getUserMedia === 'undefined') {
+				navigator.getUserMedia(constraints, streamHandler, errorHandler);
+			} else {
+				navigator.mediaDevices.getUserMedia(constraints)
+				.then(streamHandler).catch(errorHandler);
+			}
 		// }
 
 		
