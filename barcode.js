@@ -91,10 +91,10 @@ var barcode = function() {
 			}
 
 			if (typeof navigator.mediaDevices.getUserMedia === 'undefined') {
-				navigator.getUserMedia(constraints, streamHandler, errorHandler);
+				navigator.getUserMedia(constraints, streamHandler, onErrorHandler);
 			} else {
 				navigator.mediaDevices.getUserMedia(constraints)
-				.then(streamHandler).catch(errorHandler);
+				.then(streamHandler).catch(onErrorHandler);
 			}
 		// }
 
