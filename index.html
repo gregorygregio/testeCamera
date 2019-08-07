@@ -5,12 +5,19 @@
 	<link rel="stylesheet" href="style.css" />
 	<script type="text/javascript" src="jquery.js"></script>
 	
+	<script>
+		function trygoogle() {
+			window.location="pic2shop://scan?callback=http%3A//www.google.com/m/products%3Fgl%3Dus%26source%3Dmog%26hl%3Den%26source%3Dgp2%26q%3DEAN%26btnProductsHome%3DSearch%2BProducts";
+		}
+	</script>
 </head>
 
 <body>
 
 	
-	<a href="p2spro://scan?formats=EAN13,EAN8,UPCE,ITF,CODE39,CODE128,CODE93,STD2OF5,CODABAR,QR &callback=google.com">ABRIR APP</a>
+	<button
+		onclick="trygoogle()"
+	>barcode</button>
 
 	</div>
 	<!-- <canvas id="barcodecanvas"></canvas> -->
