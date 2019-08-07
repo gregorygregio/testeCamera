@@ -4,48 +4,13 @@
 <head>
 	<link rel="stylesheet" href="style.css" />
 	<script type="text/javascript" src="jquery.js"></script>
-	<script type="text/javascript" src="barcode.js"></script>
-
-	<script type="text/javascript">
-
-		var sound = new Audio("barcode.wav");
-
-		$(document).ready(function () {
-			try {
-				barcode.config.start = 0.1;
-				barcode.config.end = 0.9;
-				barcode.config.video = '#barcodevideo';
-				barcode.config.canvas = '#canvasContainer';
-				barcode.config.canvasg = '#barcodecanvasg';
-				
-				barcode.onRead(function (barcode) {
-					sound.play();
-					$('#result').html(barcode);
-				});
-				barcode.onError(function (error) {
-					alert('caught error >> ' + error);
-				});
-
-				barcode.init();
-				
-				
-				
-			} catch (e) {
-				alert('error' + e)
-			}
-		});
-
-	</script>
-
+	
 </head>
 
 <body>
 
-	<div id="barcode">
-		<video id="barcodevideo" autoplay  muted playsinline></video>
-		<canvas id="barcodecanvasg"></canvas>
-	</div>
-	<div id="canvasContainer">
+	
+	<a href="p2spro://scan?formats=EAN13,EAN8,UPCE,ITF,CODE39,CODE128,CODE93,STD2OF5,CODABAR,QR &callback=google.com">ABRIR APP</a>
 
 	</div>
 	<!-- <canvas id="barcodecanvas"></canvas> -->
