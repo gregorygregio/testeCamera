@@ -58,11 +58,11 @@
 
 
             var returnWithResponse = function (barcode) {
-                location.href = callbackUrl + '&barcode=' + barcode;
+                location.href = callbackUrl + '?barcode=' + barcode;
             }
 
             var returnWithError = function (msg) {
-                location.href = callbackUrl + '&geolocation-error=' + encodeURIComponent(msg);
+                location.href = callbackUrl + '?geolocation-error=' + encodeURIComponent(msg);
             }
 
             Quagga.init({
