@@ -57,8 +57,8 @@
             var callbackUrl = urlParams.get('callback');
 
 
-            var returnWithResponse = function (latitude, longitude) {
-                location.href = callbackUrl + '&latitude=' + latitude + '&longitude=' + longitude;
+            var returnWithResponse = function (barcode) {
+                location.href = callbackUrl + '&barcode=' + barcode;
             }
 
             var returnWithError = function (msg) {
@@ -120,6 +120,7 @@
 
 			Quagga.onDetected(function (result) {
                 alert("Barcode detected and processed : [" + result.codeResult.code + "]", result);
+				returnWithResponse(result.codeResult.code)
             });
 
 			Quagga.onProcessed(function (result) {
