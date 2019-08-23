@@ -46,22 +46,45 @@
 
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="quagga.min.js"></script>
+    <script type="text/javascript" src="eruda.min.js"></script>
 </head>
 
 <body>
 
     <div id="scanner-wrapper">
-        <div id="scanner-wrapper">
+        <div >
             <div id="scanner-container"></div>
+        </div>
+
+        <div>
+                <input type="file" accept="image/*" capture="camera" />
+            <button id="start">Start</button>
+            <button onclick="zoom()">Zoom</button>
+            <button onclick="light()">Light</button>
         </div>
     </div>
 
 
-
-
     <script>
+        var zoomValue = 1;
+        function zoom() {
+            zoomValue++;
+            const track = Quagga.CameraAccess.getActiveTrack();
+            var capabilities = track.getCapabilities(); 
+            alert(zoomValue);
+            alert("track.getSettings()" + JSON.stringify(track.getSettings()) );
+            track.applyConstraints({ advanced: [{zoom: zoomValue}]}).catch(e => alert(e));
+        }
 
-        jQuery(document).ready(function() {
+        function light() {
+
+            const track = Quagga.CameraAccess.getActiveTrack();
+            track.applyConstraints({ advanced: [{torch: true}]}).catch(e => console.log(e));
+        }
+
+        eruda.init();
+
+        jQuery("#start").click(function() {
             var urlParams = new URLSearchParams(window.location.search);
             var callbackUrl = urlParams.get('callback');
 
@@ -121,6 +144,7 @@
 
                 console.log("Initialization finished. Ready to start");
                 Quagga.start();
+
 
                 // Set flag to is running
                 _scannerIsRunning = true;
