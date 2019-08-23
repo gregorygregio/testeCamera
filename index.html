@@ -46,6 +46,7 @@
 
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="quagga.min.js"></script>
+    <script type="text/javascript" src="eruda.min.js"></script>
 </head>
 
 <body>
@@ -61,8 +62,6 @@
             <button onclick="light()">Light</button>
         </div>
     </div>
-
-
 
 
     <script>
@@ -81,6 +80,8 @@
             const track = Quagga.CameraAccess.getActiveTrack();
             track.applyConstraints({ advanced: [{torch: true}]}).catch(e => alert(e));
         }
+
+        eruda.init();
 
         jQuery("#start").click(function() {
             var urlParams = new URLSearchParams(window.location.search);
