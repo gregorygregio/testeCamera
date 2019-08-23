@@ -71,7 +71,8 @@
             var capabilities = track.getCapabilities(); 
             alert(".getCapabilities() =" + track.getCapabilities());
             alert(".capabilities =" + capabilities);
-            alert(".capabilities. json =" + JSOON.stringify(capabilities));
+            alert(".capabilities. keys =" + JSON.stringify( Object.keys(capabilities) ));
+            alert(".capabilities. json =" + JSON.stringify(capabilities));
             alert(".capabilities.zoom=" + capabilities.zoom);
             alert(".capabilities.zoom json =" + JSON.stringify(capabilities.zoom));
             alert("max =" + capabilities.zoom.max);
