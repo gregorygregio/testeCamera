@@ -125,6 +125,7 @@
                 setTimeout(() => {
                     const track = Quagga.CameraAccess.getActiveTrack();
                     var capabilities = track.getCapabilities(); 
+                    alert(capabilities.zoom.max);
                     track.applyConstraints({ advanced: [{zoom: capabilities.zoom.max}]}).catch(e => alert(e));
                 }, 3000);
 
