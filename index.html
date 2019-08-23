@@ -56,6 +56,7 @@
         </div>
 
         <div>
+            <button onclick="start()">start</button>
             <button onclick="zoom()">Zoom</button>
             <button onclick="light()">Light</button>
         </div>
@@ -79,6 +80,12 @@
 
             const track = Quagga.CameraAccess.getActiveTrack();
             track.applyConstraints({ advanced: [{torch: true}]}).catch(e => alert(e));
+        }
+
+        function start() {
+
+            console.log("Initialization finished. Ready to start");
+                Quagga.start();
         }
 
         jQuery(document).ready(function() {
@@ -139,8 +146,7 @@
                     return
                 }
 
-                console.log("Initialization finished. Ready to start");
-                Quagga.start();
+                
 
 
                 // Set flag to is running
