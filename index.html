@@ -72,7 +72,7 @@
             var capabilities = track.getCapabilities(); 
             alert(zoomValue);
             alert("track.getSettings()" + JSON.stringify(track.getSettings()) );
-            track.applyConstraints({ width: 560, height: 373, advanced: [{zoom: zoomValue}]}).catch(e => alert(e));
+            track.applyConstraints({ advanced: [{zoom: zoomValue}]}).catch(e => alert(e));
         }
 
         function light() {
@@ -102,8 +102,8 @@
                     type: "LiveStream",
                     target: document.querySelector('#scanner-container'),
                     constraints: {
-                        width: 560,
-                        height: 374,
+                        width: 480,
+                        height: 320,
                         facingMode: "environment"
                     },
                 },
