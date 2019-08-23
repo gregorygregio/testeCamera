@@ -51,14 +51,15 @@
 <body>
 
     <div id="scanner-wrapper">
-        <!-- <a href="pdf417://scan?type=PDF417,UPCA&callback=google.com">ABRIR APP</a> -->
         <button onclick="trygoogle()">barcode</button>
+        <br>
+        <a href="pdf417://scan?callback=https://google.com">ABRIR APP</a>
+        <a href="pdf417://scan?callback=google.com">ABRIR APP</a>
     </div>
 
 
     <script>
         function trygoogle() {
-            alert();
 			window.location="pdf417://scan?callback=https://google.com";
 		}
         eruda.init();
