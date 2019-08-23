@@ -70,7 +70,9 @@
             const track = Quagga.CameraAccess.getActiveTrack();
             var capabilities = track.getCapabilities(); 
             alert(".getCapabilities() =" + track.getCapabilities());
-            alert(".capabilities.zoom =" + capabilities.zoom);
+            alert(".capabilities =" + capabilities);
+            alert(".capabilities. json =" + JSOON.stringify(capabilities));
+            alert(".capabilities.zoom=" + capabilities.zoom);
             alert(".capabilities.zoom json =" + JSON.stringify(capabilities.zoom));
             alert("max =" + capabilities.zoom.max);
             alert(zoomValue);
