@@ -68,7 +68,7 @@
     <script>
         var zoomValue = 1;
         function zoom() {
-            zoomValue++;
+            zoomValue+=100;
             const track = Quagga.CameraAccess.getActiveTrack();
             var capabilities = track.getCapabilities(); 
             alert(zoomValue);
