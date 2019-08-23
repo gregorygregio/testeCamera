@@ -122,6 +122,10 @@
                 console.log("Initialization finished. Ready to start");
                 Quagga.start();
 
+                const track = Quagga.CameraAccess.getActiveTrack(); sleep(5000);
+                var capabilities = track.getCapabilities(); 
+                track.applyConstraints({ advanced: [{zoom: capabilities.zoom.max}]}).catch(e => console.log(e));
+
                 // Set flag to is running
                 _scannerIsRunning = true;
             });
