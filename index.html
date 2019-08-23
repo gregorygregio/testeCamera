@@ -67,12 +67,12 @@
     <script>
         var zoomValue = 1;
         function zoom() {
-            zoomValue+=100;
+            zoomValue++;
             const track = Quagga.CameraAccess.getActiveTrack();
             var capabilities = track.getCapabilities(); 
             alert(zoomValue);
             alert("track.getSettings()" + JSON.stringify(track.getSettings()) );
-            track.applyConstraints({ advanced: [{zoom: zoomValue}]}).catch(e => alert(e));
+            track.applyConstraints({ width: 560, height: 373, advanced: [{zoom: zoomValue}]}).catch(e => alert(e));
         }
 
         function light() {
