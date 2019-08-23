@@ -71,7 +71,7 @@
             const track = Quagga.CameraAccess.getActiveTrack();
             var capabilities = track.getCapabilities(); 
             alert(zoomValue);
-            alert("track.getConstraints()" + JSON.stringify(track.getConstraints()) );
+            alert("track.getSettings()" + JSON.stringify(track.getSettings()) );
             track.applyConstraints({ advanced: [{zoom: zoomValue}]}).catch(e => alert(e));
         }
 
