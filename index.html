@@ -33,6 +33,7 @@
 
         .drawingBuffer {
             display: block;
+            border: solid 1px yellow;
         }
 
         #scanner-container {
@@ -128,7 +129,7 @@
 
 			Quagga.onDetected(function (result) {
                 alert("Barcode detected and processed : [" + result.codeResult.code + "]", result);
-				returnWithResponse(result.codeResult.code)
+				// returnWithResponse(result.codeResult.code)
             });
 
 			Quagga.onProcessed(function (result) {
