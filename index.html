@@ -78,7 +78,7 @@
         function light() {
 
             const track = Quagga.CameraAccess.getActiveTrack();
-            track.applyConstraints({ advanced: [{torch: true}]}).catch(e => alert(e));
+            track.applyConstraints({ advanced: [{torch: true}]}).catch(e => console.log(e));
         }
 
         eruda.init();
