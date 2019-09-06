@@ -63,9 +63,12 @@
 
 <body>
     <h1>
-        <a href="mybarcodereader://scan?callback=http://google.com">
+        <a id="buttonApp" href="mybarcodereader://scan?callback=https://barcode-teste.netlify.com">
             Open barcodereader
         </a>
+        <span id="barcodeResponse" style="display: none">
+            Barcode: <span id="barcodeeValue"></span>
+        </span>
     </h1>
 <br>
 <br>
@@ -85,6 +88,39 @@
 
 
     <script>
+
+        window.onload = function() {
+
+            var buttonApp = document.querySelector("#buttonApp");
+            var barcodeResponse = document.querySelector("#barcodeResponse");
+            var barcodeeValue = document.querySelector("#barcodeeValue");
+
+
+            var queryParamsString = location.search.replace("?", "");
+
+            queryParamsString.split("&");
+
+            if(queryParamsString === "")
+                return;
+
+            var queryParams = queryParamsString.split("&").map( function(param) {
+                if(param === "")
+                return { name: "", value: "" }
+                return { name: param.slice(0, param.indexOf("=")), value: param.slice(param.indexOf("=") +1) }
+            })
+
+            var barcode = queryParams.find( function(param) {
+                return param.name == "barcode"
+            });
+
+            if(barcode) {
+                barcodeeValue.innerHTML = barcode.value;
+                barcodeResponse.style.display = 'block';
+                buttonApp.style.display = 'none';
+            }
+
+
+        }
         // var zoomValue = 1;
         // function zoom() {
         //     zoomValue++;
